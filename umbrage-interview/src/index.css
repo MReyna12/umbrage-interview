@@ -6,3 +6,8 @@
   line-height: 24px;
   font-weight: 400;
 }
+
+/* Increase the height of the spans. Bulma default is 1px and is too difficult to see. */
+.navbar-burger > span {
+  height: 3px;
+}

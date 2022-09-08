@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import settings from "../helpers/get-settings";
+import Nav from "./Nav";
 
 function Avatars() {
   // State variable that will hold the array of objects fetched below
@@ -36,12 +37,15 @@ function Avatars() {
 
   const avatarList = avatars.map((avatar) => {
     return (
-      <div key={avatar.id} className="column has-text-centered">
+      <div
+        key={avatar.id}
+        className="column is-flex is-flex-direction-column is-align-items-center "
+      >
         {avatar.avatar && <img src={avatar.avatar} />}
-        <h1 className="title">
+        <h1 className="title is-size-4 my-3">
           {avatar.first_name} {avatar.last_name}
         </h1>
-        <button className="button is-info" id={avatar.id} onClick={handleClick}>
+        <button className="button is-dark" id={avatar.id} onClick={handleClick}>
           Detailed View
         </button>
       </div>
@@ -49,11 +53,14 @@ function Avatars() {
   });
 
   return (
-    <section className="section">
-      <div className="container">
-        <div className="columns">{avatarList}</div>
-      </div>
-    </section>
+    <>
+      <Nav />
+      <section className="section">
+        <div className="container">
+          <div className="columns">{avatarList}</div>
+        </div>
+      </section>
+    </>
   );
 }
 
