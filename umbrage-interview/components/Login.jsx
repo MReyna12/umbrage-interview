@@ -5,6 +5,7 @@ function Login() {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const auth = useAuth();
 
+  // Updates the state of the formData each time a user presses a key inside of either input element
   function handleChange(event) {
     setFormData((prevFormData) => {
       return {
@@ -14,6 +15,8 @@ function Login() {
     });
   }
 
+  // preventDefault used to stop the default behavior of: submitting the form, refreshing the page, and adding the submitted data to the url
+  // auth.login() passes the data entered into the inputs and if the correct username/password are entered then the user will be allowed access to protected routes
   function handleSubmit(event) {
     event.preventDefault();
     auth.login({ username: formData.username, password: formData.password });
@@ -38,7 +41,7 @@ function Login() {
                       placeholder="Enter username"
                       onChange={handleChange}
                       name="username"
-                      value={formData.username} // Tells the input box what to display rather than the input box telling the state what to display
+                      value={formData.username}
                     />
                   </div>
                 </div>
