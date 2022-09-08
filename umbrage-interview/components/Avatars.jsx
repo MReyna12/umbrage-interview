@@ -44,7 +44,7 @@ function Avatars() {
     return (
       <div
         key={avatar.id}
-        className="column is-flex is-flex-direction-column is-align-items-center "
+        className="column is-flex is-flex-direction-column is-align-items-center"
       >
         {avatar.avatar && <img src={avatar.avatar} />}
         <h1 className="title is-size-4 my-3">

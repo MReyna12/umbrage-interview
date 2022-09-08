@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/auth";
 
 function Nav() {
@@ -20,9 +21,11 @@ function Nav() {
     >
       <div className="container">
         <div className="navbar-brand">
-          <span className="navbar-item is-size-5 has-text-white has-text-weight-bold test">
-            Umbrage Interview App
-          </span>
+          <Link to={"/avatars"}>
+            <span className="navbar-item is-size-5 has-text-white has-text-weight-bold test">
+              Umbrage Interview App
+            </span>
+          </Link>
 
           <a
             onClick={() => setIsActive((prevState) => !prevState)}
