@@ -32,7 +32,8 @@ function Avatars() {
     fetchAvatars();
   }, []);
 
-  // Navigate after authorization
+  // Send the userId associated with the Detailed View button upon routing to /detailedview.
+  // This allows for a fetch request to be made to obtain user comments and other user info.
 
   const handleClick = async (event) => {
     event.persist();

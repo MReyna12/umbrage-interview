@@ -1,15 +1,12 @@
-import { useState, useEffect, useContext, createContext } from "react";
+import { useContext, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({ username: null, password: null });
   const navigate = useNavigate();
 
   const login = async (user) => {
-    setUser(user);
-
     const loginUrl = "https://umbrage-interview-api.herokuapp.com/login";
     const settings = {
       method: "POST",
@@ -35,21 +32,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // When a user logouts, the user state variable is set to null, localstorage clears the token, and the user is sent back to the login page
+  // When a user logouts localstorage is cleared and the user is sent back to the login page
   const logout = () => {
-    setUser((prevState) => {
-      return {
-        ...prevState,
-        username: null,
-        password: null,
-      };
-    });
     localStorage.clear();
     navigate("/", { replace: true });
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ login, logout }}>
       {children}
     </AuthContext.Provider>
   );

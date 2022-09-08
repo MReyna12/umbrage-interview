@@ -23,12 +23,12 @@ function DetailedView() {
       try {
         const response = await fetch(personUrl, settings);
         const data = await response.json();
-        const newState = data.person;
-        const newComments = data.person.comments.map(
+        const userData = data.person;
+        const arrayOfComments = data.person.comments.map(
           (comment) => comment.comment
         );
-        setComments(newComments);
-        setPerson(newState);
+        setComments(arrayOfComments);
+        setPerson(userData);
       } catch (err) {
         console.error(err);
       }
