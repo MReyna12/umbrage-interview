@@ -6,9 +6,9 @@ function DetailedView() {
   const [comments, setComments] = useState([]);
 
   const location = useLocation();
-  const userId = location.state.userId;
 
   useEffect(() => {
+    const userId = location.state.userId;
     const personUrl = `https://umbrage-interview-api.herokuapp.com/people/${userId}`;
     const settings = {
       method: "GET",

@@ -37,7 +37,13 @@ export const AuthProvider = ({ children }) => {
 
   // When a user logouts, the user state variable is set to null, localstorage clears the token, and the user is sent back to the login page
   const logout = () => {
-    setUser(null);
+    setUser((prevState) => {
+      return {
+        ...prevState,
+        username: null,
+        password: null,
+      };
+    });
     localStorage.clear();
     navigate("/", { replace: true });
   };
