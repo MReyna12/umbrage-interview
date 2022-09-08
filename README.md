@@ -7,6 +7,7 @@
   - [Screenshot](#Screenshot)
 - [My Process](#My-Process)
   - [Built With](#Built-With)
+  - [Dev & Build Instructions](#Dev-&-Build-Instructions)
   - [How It Works](#How-It-Works)
   - [Optimizations](#Optimizations)
 - [Author](#Author)
@@ -23,8 +24,24 @@
 ### Built With
 - React
 - Bulma (Styling)
-- Vite (used to install React/faster server start time/updates)
+- Vite (used to install React/faster server start time and updates/build for production)
 
+### Dev & Build Instructions
+
+Once code is downloaded/cloned/forked, run npm install to install the dependencies (bulma, nanoid, react, react-dom, react-router-dom, and vite).
+Make sure in your package.json the following scripts exist: 
+
+`"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+}`
+
+#### Dev Environment
+Enter the following command into your terminal: npm run dev. The terminal will the provide you a localhost at which you can view in your preferred browser. Any changes to the code will reflect in the browser upon saving the file in your code editor.
+
+#### Test Production
+Enter the following commands into your terminal: npm run build --> npm run preview (after you have been notified in the terminal that the app was built for production). After entering npm run preview, a localhost will be provided for your in the terminal and you can preview what the app would look like in production.
 
 ### How It Works
 
