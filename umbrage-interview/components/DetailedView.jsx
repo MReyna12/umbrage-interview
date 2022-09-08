@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { nanoid } from "nanoid";
 import Nav from "./Nav";
 
 function DetailedView() {
@@ -38,7 +39,7 @@ function DetailedView() {
 
   const userComments = comments.map((comment) => {
     return (
-      <article className="message is-danger">
+      <article key={nanoid()} className="message is-danger">
         <div className="message-header">
           <h2>Comment by {person.first_name}</h2>
         </div>
