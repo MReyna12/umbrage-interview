@@ -23,6 +23,9 @@ function Login() {
     <section className="hero is-fullheight">
       <div className="hero-body">
         <div className="container">
+          <h1 className="title has-text-centered">
+            Umbrage Interview Application
+          </h1>
           <form
             className="columns is-justify-content-center"
             onSubmit={handleSubmit}

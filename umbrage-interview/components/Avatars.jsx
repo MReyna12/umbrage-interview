@@ -36,19 +36,25 @@ function Avatars() {
 
   const avatarList = avatars.map((avatar) => {
     return (
-      <div key={avatar.id}>
+      <div key={avatar.id} className="column has-text-centered">
         {avatar.avatar && <img src={avatar.avatar} />}
-        <h1>
+        <h1 className="title">
           {avatar.first_name} {avatar.last_name}
         </h1>
-        <button id={avatar.id} onClick={handleClick}>
+        <button className="button is-info" id={avatar.id} onClick={handleClick}>
           Detailed View
         </button>
       </div>
     );
   });
 
-  return <>{avatarList}</>;
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="columns">{avatarList}</div>
+      </div>
+    </section>
+  );
 }
 
 export default Avatars;
