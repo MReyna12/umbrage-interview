@@ -5,7 +5,7 @@ const ProtectedRoute = ({ children }) => {
   const navigate = useNavigate();
 
   if (!localStorage.getItem("token")) {
-    // token has not been generated--user is not authenticated; useEffect used so this component doesn't only run upon the application loading
+    // If a user tries to access a protected route prior to obtaining a bearer token, then will be sent back to the login page
     useEffect(() => {
       return navigate("/");
     }, []);
