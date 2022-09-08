@@ -1,0 +1,8 @@
+@import "../node_modules/bulma/css/bulma.min.css";
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
