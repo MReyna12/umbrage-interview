@@ -55,38 +55,3 @@ function Nav() {
 }
 
 export default Nav;
-
-/* 
-<nav
-      class="navbar has-background-info"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div class="navbar-brand">
-        <span class="navbar-item title is-size-6 has-text-white">
-          Umbrage Interview App
-        </span>
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-dark">Logout</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-*/
