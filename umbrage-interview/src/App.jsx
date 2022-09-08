@@ -4,7 +4,6 @@ import Avatars from "../components/Avatars";
 import Login from "../components/Login";
 import ProtectedRoute from "../components/ProtectedRoute";
 import { AuthProvider } from "../hooks/auth";
-import "./App.css";
 
 function App() {
   return (

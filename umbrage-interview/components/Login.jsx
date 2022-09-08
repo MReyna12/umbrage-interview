@@ -20,50 +20,49 @@ function Login() {
   }
 
   return (
-    <section className="hero is-fullheight">
+    <section className="hero is-danger is-fullheight">
       <div className="hero-body">
-        <div className="container">
-          <h1 className="title has-text-centered">
-            Umbrage Interview Application
-          </h1>
-          <form
-            className="columns is-justify-content-center"
-            onSubmit={handleSubmit}
-          >
-            <div className="column is-two-fifths-tablet">
-              <div className="field">
-                <label className="label">Username</label>
-                <div className="control">
-                  <input
-                    className="input is-primary"
-                    type="text"
-                    placeholder="Enter username"
-                    onChange={handleChange}
-                    name="username"
-                    value={formData.username} // Tells the input box what to display rather than the input box telling the state what to display
-                  />
+        <div className="container is-flex is-justify-content-center">
+          <div className="box">
+            <h1 className="title has-text-black has-text-centered">
+              Umbrage Interview Application
+            </h1>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <div className="field">
+                  <label className="label">Username</label>
+                  <div className="control">
+                    <input
+                      className="input is-danger"
+                      type="text"
+                      placeholder="Enter username"
+                      onChange={handleChange}
+                      name="username"
+                      value={formData.username} // Tells the input box what to display rather than the input box telling the state what to display
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  <label className="label">Password</label>
+                  <div className="control">
+                    <input
+                      className="input is-danger"
+                      type="password"
+                      placeholder="Enter password"
+                      onChange={handleChange}
+                      name="password"
+                      value={formData.password}
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  <div className="control">
+                    <button className="button is-danger">Submit</button>
+                  </div>
                 </div>
               </div>
-              <div className="field">
-                <label className="label">Password</label>
-                <div className="control">
-                  <input
-                    className="input is-primary"
-                    type="password"
-                    placeholder="Enter password"
-                    onChange={handleChange}
-                    name="password"
-                    value={formData.password}
-                  />
-                </div>
-              </div>
-              <div className="field">
-                <div className="control">
-                  <button className="button is-primary">Submit</button>
-                </div>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </section>
