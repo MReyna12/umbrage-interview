@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import settings from "../helpers/get-settings";
 import Nav from "./Nav";
 
 function Avatars() {
@@ -12,10 +11,16 @@ function Avatars() {
   // Fetch the people object within useEffect hook or React will fetch the API over-and-over again
   useEffect(() => {
     const peopleUrl = "https://umbrage-interview-api.herokuapp.com/people";
+    const settings = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
 
     const fetchAvatars = async () => {
       try {
-        const response = await fetch(peopleUrl, settings.get);
+        const response = await fetch(peopleUrl, settings);
         const data = await response.json();
         const newState = data.people.map((person) => person);
         setAvatar(newState);

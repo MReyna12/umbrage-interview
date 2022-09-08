@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import settings from "../helpers/get-settings";
 
 function DetailedView() {
   const [person, setPerson] = useState({});
@@ -11,10 +10,16 @@ function DetailedView() {
 
   useEffect(() => {
     const personUrl = `https://umbrage-interview-api.herokuapp.com/people/${userId}`;
+    const settings = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
 
     const fetchPerson = async () => {
       try {
-        const response = await fetch(personUrl, settings.get);
+        const response = await fetch(personUrl, settings);
         const data = await response.json();
         const newState = data.person;
         const newComments = data.person.comments.map(
