@@ -4,11 +4,12 @@ import { useAuth } from "../hooks/auth";
 
 function Nav() {
   // Manage the active state of the hamburger menu so as to display the X instead of the three lines
-  // and the Logout button when the hamburger button is clicked
+  // After clicking the hamburger menu, a dropdown with the logout button is displayed
   const [isActive, setIsActive] = useState(false);
 
   const auth = useAuth();
 
+  // When the user clicks the logout button, they are returned to the login page and the bearer token is cleared from localstorage
   const handleLogout = () => {
     auth.logout();
   };
