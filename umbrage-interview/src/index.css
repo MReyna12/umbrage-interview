@@ -5,6 +5,7 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  overflow-y: auto;
 }
 
 /* Increase the height of the spans. Bulma default is 1px and is too difficult to see. */

@@ -8,39 +8,40 @@ function Avatars() {
 
   const navigate = useNavigate();
 
-  // Fetch the people object within useEffect hook or React will fetch the API over-and-over again
+  const peopleUrl = "https://umbrage-interview-api.herokuapp.com/people";
+  const settings = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  };
+
+  const fetchAvatars = async () => {
+    try {
+      const response = await fetch(peopleUrl, settings);
+      const data = await response.json();
+      const arrayOfPeople = data.people.map((person) => person);
+      setAvatar(arrayOfPeople);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // Because we only need to make the GET request once, an empty dependency array is used to call fetchAvatars on page load
   useEffect(() => {
-    const peopleUrl = "https://umbrage-interview-api.herokuapp.com/people";
-    const settings = {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    };
-
-    const fetchAvatars = async () => {
-      try {
-        const response = await fetch(peopleUrl, settings);
-        const data = await response.json();
-        const newState = data.people.map((person) => person);
-        setAvatar(newState);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
     fetchAvatars();
   }, []);
 
   // Send the userId associated with the Detailed View button upon routing to /detailedview.
-  // This allows for a fetch request to be made to obtain user comments and other user info.
-
+  // This allows for a fetch request to be made to obtain user comments and other user info for the user associated with the aforementioned userId.
   const handleClick = async (event) => {
     event.persist();
     const id = event.currentTarget.id;
     navigate("/detailedview", { state: { userId: id } });
   };
 
+  // Map through the array of avatars to create a "list" of users fetched from the API above
+  // Because it is not a guarantee there will be a image associated with each user, the img element only renders if avatar.avatar is truthy
   const avatarList = avatars.map((avatar) => {
     return (
       <div
