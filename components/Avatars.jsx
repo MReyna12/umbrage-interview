@@ -46,7 +46,7 @@ function Avatars() {
     return (
       <div
         key={avatar.id}
-        className="column is-flex is-flex-direction-column is-align-items-center"
+        className="column is-one-quarter is-flex is-flex-direction-column is-align-items-center"
       >
         {avatar.avatar && <img src={avatar.avatar} />}
         <h1 className="title is-size-4 my-3">
@@ -64,7 +64,7 @@ function Avatars() {
       <Nav />
       <section className="section">
         <div className="container">
-          <div className="columns">{avatarList}</div>
+          <div className="columns is-multiline">{avatarList}</div>
         </div>
       </section>
     </>
